@@ -1,23 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Real Pagueiro FC</title>
-    <style>
-        body {
-            background-color: #111;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 100px;
-        }
-        h1 {
-            color: #00ff88;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Real Pagueiro FC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --cor-principal: #0b1d3a;
+      --cor-secundaria: #f5c400;
+      --cor-fundo: #0a0a0a;
+      --cor-card: #141414;
+      --texto: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: var(--cor-fundo);
+      color: var(--texto);
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--cor-principal), #000);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: var(--cor-secundaria);
+    }
+
+    header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .card {
+      background: var(--cor-card);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    }
+
+    .card h2 {
+      color: var(--cor-secundaria);
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .historia p {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .stats div {
+      flex: 1;
+    }
+
+    .stats strong {
+      display: block;
+      font-size: 22px;
+      color: var(--cor-secundaria);
+    }
+
+    .stats span {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .elenco ul {
+      list-style: none;
+      font-size: 14px;
+    }
+
+    .elenco li {
+      padding: 6px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    /* Desktop */
+    @media (min-width: 768px) {
+      section {
+        max-width: 900px;
+        margin: auto;
+      }
+
+      header h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <h1>⚽ Real Pagueiro FC</h1>
-    <p>Site funcionando corretamente 🚀</p>
+
+<header>
+  <h1>⚽ Real Pagueiro FC</h1>
+  <p>Time de FC 26 • União • Respeito • Vitória</p>
+</header>
+
+<section>
+
+  <div class="card historia">
+    <h2>📜 História do Clube</h2>
+    <p>
+      O Real Pagueiro FC nasceu a partir da ideia de um dos fundadores, <strong>Jotta</strong>,
+      inspirada por sua mãe. O clube surgiu com o objetivo de competir, se divertir
+      e criar uma identidade forte dentro do FC 26.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>📊 Estatísticas Oficiais</h2>
+    <div class="stats">
+      <div>
+        <strong>100</strong>
+        <span>Jogos</span>
+      </div>
+      <div>
+        <strong>50</strong>
+        <span>Vitórias</span>
+      </div>
+      <div>
+        <strong>30</strong>
+        <span>Empates</span>
+      </div>
+      <div>
+        <strong>20</strong>
+        <span>Derrotas</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card elenco">
+    <h2>👥 Elenco</h2>
+    <ul>
+      <li><strong>GOL:</strong> Assis</li>
+      <li><strong>ZAGA:</strong> Brunão, Jeovs</li>
+      <li><strong>LE:</strong> Kamiza</li>
+      <li><strong>ME:</strong> Victor</li>
+      <li><strong>MC:</strong> Pinheiro, Punhas</li>
+      <li><strong>MD:</strong> Maluan</li>
+      <li><strong>ATA:</strong> Jotta, Arthuzin</li>
+      <li><strong>Reservas:</strong> Luck, Freitas, BN</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🧠 Formação Base</h2>
+    <p>Formação principal: <strong>4-4-2</strong></p>
+    <p>Com a bola, o time se transforma em <strong>4-2-4 ofensivo</strong>.</p>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 • Real Pagueiro FC • Site oficial
+</footer>
+
 </body>
 </html>
