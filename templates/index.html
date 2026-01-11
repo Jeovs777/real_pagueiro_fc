@@ -1,188 +1,202 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Real Pagueiro FC</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Real Pagueiro FC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --cor-principal: #0b1d3a;
-      --cor-secundaria: #f5c400;
-      --cor-fundo: #0a0a0a;
-      --cor-card: #141414;
-      --texto: #ffffff;
-    }
+<style>
+:root{
+  --azul-claro:#7ec8f2;
+  --azul-escuro:#0b1d3a;
+  --preto:#000;
+  --branco:#fff;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, Helvetica, sans-serif;
-    }
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:var(--preto);
+  color:var(--branco);
+}
 
-    body {
-      background: var(--cor-fundo);
-      color: var(--texto);
-    }
+header{
+  background:linear-gradient(135deg,var(--azul-escuro),#000);
+  padding:18px;
+  text-align:center;
+  border-bottom:3px solid var(--azul-claro);
+}
 
-    header {
-      background: linear-gradient(135deg, var(--cor-principal), #000);
-      padding: 20px;
-      text-align: center;
-    }
+header h1{
+  color:var(--azul-claro);
+  margin:0;
+}
 
-    header h1 {
-      font-size: 26px;
-      color: var(--cor-secundaria);
-    }
+header p{
+  font-size:13px;
+  opacity:.9;
+}
 
-    header p {
-      font-size: 14px;
-      opacity: 0.9;
-    }
+section{
+  padding:16px;
+}
 
-    section {
-      padding: 20px;
-    }
+.card{
+  background:#0f0f0f;
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:18px;
+  box-shadow:0 0 20px rgba(0,0,0,.6);
+}
 
-    .card {
-      background: var(--cor-card);
-      border-radius: 14px;
-      padding: 16px;
-      margin-bottom: 16px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.6);
-    }
+h2{
+  color:var(--azul-claro);
+  font-size:18px;
+  margin-bottom:12px;
+}
 
-    .card h2 {
-      color: var(--cor-secundaria);
-      margin-bottom: 10px;
-      font-size: 18px;
-    }
+/* CAMPO */
+.campo{
+  position:relative;
+  width:100%;
+  height:520px;
+  background:linear-gradient(#0f5c2e,#0b4b23);
+  border-radius:18px;
+  overflow:hidden;
+  border:3px solid var(--azul-claro);
+}
 
-    .historia p {
-      font-size: 14px;
-      line-height: 1.6;
-      opacity: 0.95;
-    }
+/* Linhas */
+.campo::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border:2px solid rgba(255,255,255,.4);
+  border-radius:12px;
+}
 
-    .stats {
-      display: flex;
-      justify-content: space-between;
-      text-align: center;
-    }
+.meio{
+  position:absolute;
+  top:50%;
+  left:0;
+  width:100%;
+  height:2px;
+  background:rgba(255,255,255,.4);
+}
 
-    .stats div {
-      flex: 1;
-    }
+.circulo{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:90px;
+  height:90px;
+  border:2px solid rgba(255,255,255,.4);
+  border-radius:50%;
+  transform:translate(-50%,-50%);
+}
 
-    .stats strong {
-      display: block;
-      font-size: 22px;
-      color: var(--cor-secundaria);
-    }
+/* Jogadores */
+.jogador{
+  position:absolute;
+  width:50px;
+  height:50px;
+  background:var(--azul-escuro);
+  border:3px solid var(--azul-claro);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:9px;
+  font-weight:bold;
+  transition:all .6s ease;
+  box-shadow:0 0 10px rgba(126,200,242,.6);
+}
 
-    .stats span {
-      font-size: 12px;
-      opacity: 0.8;
-    }
+/* Botão */
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:var(--azul-claro);
+  color:#000;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+}
 
-    .elenco ul {
-      list-style: none;
-      font-size: 14px;
-    }
+/* 4-4-2 SEM BOLA */
+.sem-bola #assis{top:90%;left:45%}
+.sem-bola #brunao{top:75%;left:30%}
+.sem-bola #jeovs{top:75%;left:60%}
+.sem-bola #kamiza{top:70%;left:10%}
 
-    .elenco li {
-      padding: 6px 0;
-      border-bottom: 1px solid #222;
-    }
+.sem-bola #victor{top:55%;left:20%}
+.sem-bola #pinheiro{top:55%;left:40%}
+.sem-bola #punhas{top:55%;left:60%}
+.sem-bola #maluan{top:55%;left:80%}
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 12px;
-      opacity: 0.7;
-    }
+.sem-bola #jotta{top:35%;left:40%}
+.sem-bola #arthuzin{top:35%;left:60%}
 
-    /* Desktop */
-    @media (min-width: 768px) {
-      section {
-        max-width: 900px;
-        margin: auto;
-      }
+/* 4-2-4 COM BOLA */
+.com-bola #assis{top:90%;left:45%}
+.com-bola #brunao{top:75%;left:30%}
+.com-bola #jeovs{top:75%;left:60%}
+.com-bola #kamiza{top:70%;left:10%}
 
-      header h1 {
-        font-size: 32px;
-      }
-    }
-  </style>
+.com-bola #victor{top:50%;left:35%}
+.com-bola #pinheiro{top:50%;left:55%}
+.com-bola #punhas{top:40%;left:20%}
+.com-bola #maluan{top:40%;left:80%}
+
+.com-bola #jotta{top:25%;left:40%}
+.com-bola #arthuzin{top:25%;left:60%}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1>⚽ Real Pagueiro FC</h1>
-  <p>Time de FC 26 • União • Respeito • Vitória</p>
+<h1>⚽ Real Pagueiro FC</h1>
+<p>Identidade oficial • FC 26</p>
 </header>
 
 <section>
+<div class="card">
+<h2>🧠 Tática Animada</h2>
 
-  <div class="card historia">
-    <h2>📜 História do Clube</h2>
-    <p>
-      O Real Pagueiro FC nasceu a partir da ideia de um dos fundadores, <strong>Jotta</strong>,
-      inspirada por sua mãe. O clube surgiu com o objetivo de competir, se divertir
-      e criar uma identidade forte dentro do FC 26.
-    </p>
-  </div>
+<div id="campo" class="campo sem-bola">
+  <div class="meio"></div>
+  <div class="circulo"></div>
 
-  <div class="card">
-    <h2>📊 Estatísticas Oficiais</h2>
-    <div class="stats">
-      <div>
-        <strong>100</strong>
-        <span>Jogos</span>
-      </div>
-      <div>
-        <strong>50</strong>
-        <span>Vitórias</span>
-      </div>
-      <div>
-        <strong>30</strong>
-        <span>Empates</span>
-      </div>
-      <div>
-        <strong>20</strong>
-        <span>Derrotas</span>
-      </div>
-    </div>
-  </div>
+  <div class="jogador" id="assis">ASSIS</div>
+  <div class="jogador" id="brunao">BRUNÃO</div>
+  <div class="jogador" id="jeovs">JEOVS</div>
+  <div class="jogador" id="kamiza">KAMIZA</div>
 
-  <div class="card elenco">
-    <h2>👥 Elenco</h2>
-    <ul>
-      <li><strong>GOL:</strong> Assis</li>
-      <li><strong>ZAGA:</strong> Brunão, Jeovs</li>
-      <li><strong>LE:</strong> Kamiza</li>
-      <li><strong>ME:</strong> Victor</li>
-      <li><strong>MC:</strong> Pinheiro, Punhas</li>
-      <li><strong>MD:</strong> Maluan</li>
-      <li><strong>ATA:</strong> Jotta, Arthuzin</li>
-      <li><strong>Reservas:</strong> Luck, Freitas, BN</li>
-    </ul>
-  </div>
+  <div class="jogador" id="victor">VICTOR</div>
+  <div class="jogador" id="pinheiro">PINHEIRO</div>
+  <div class="jogador" id="punhas">PUNHAS</div>
+  <div class="jogador" id="maluan">MALUAN</div>
 
-  <div class="card">
-    <h2>🧠 Formação Base</h2>
-    <p>Formação principal: <strong>4-4-2</strong></p>
-    <p>Com a bola, o time se transforma em <strong>4-2-4 ofensivo</strong>.</p>
-  </div>
+  <div class="jogador" id="jotta">JOTTA</div>
+  <div class="jogador" id="arthuzin">ARTHUZIN</div>
+</div>
 
+<br>
+<button onclick="alternar()">🔁 Alternar Tática</button>
+</div>
 </section>
 
-<footer>
-  © 2026 • Real Pagueiro FC • Site oficial
-</footer>
+<script>
+let estado="sem-bola";
+function alternar(){
+  const campo=document.getElementById("campo");
+  campo.classList.toggle("com-bola");
+  campo.classList.toggle("sem-bola");
+}
+</script>
 
 </body>
 </html>
