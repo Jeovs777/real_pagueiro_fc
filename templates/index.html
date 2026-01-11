@@ -2,101 +2,140 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Time do Jeovs - Editor Interativo</title>
+<title>REAL PCGUEIRO - Gerenciamento Profissional</title>
 <style>
-    body {
-        background-color: #111;
-        color: white;
-        font-family: 'Arial', sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+body {
+    margin: 0;
+    padding: 0;
+    background: #0b0b0b;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-    h1 {
-        margin-top: 20px;
-    }
+h1 {
+    margin: 20px;
+    text-shadow: 0 0 10px #ffcc00;
+}
 
-    .info-time {
-        width: 800px;
-        text-align: left;
-        margin-bottom: 10px;
-        padding: 10px;
-        background: rgba(255,255,255,0.05);
-        border-left: 5px solid #ffcc00;
-    }
+.info-time {
+    width: 900px;
+    text-align: left;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255,255,255,0.05);
+    border-left: 5px solid #ffcc00;
+    box-shadow: 0 0 10px #000;
+    font-size: 16px;
+}
 
-    .campo {
-        position: relative;
-        width: 800px;
-        height: 500px;
-        background: linear-gradient(to bottom, #0a7e07 0%, #078e08 100%);
-        border: 2px solid white;
-        border-radius: 10px;
-        box-shadow: 0 0 20px #000;
-        overflow: hidden;
-    }
+.campo {
+    position: relative;
+    width: 900px;
+    height: 520px;
+    background: linear-gradient(to bottom, #0a7e07 0%, #078e08 100%);
+    border: 2px solid white;
+    border-radius: 15px;
+    box-shadow: 0 0 30px #000;
+    overflow: hidden;
+}
 
-    .escudo {
-        position: absolute;
-        width: 100px;
-        height: 100px;
-        top: 10px;
-        left: 10px;
-        border-radius: 50%;
-        background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/FIFA_World_Cup_Trophy_2018.png/800px-FIFA_World_Cup_Trophy_2018.png') no-repeat center center;
-        background-size: contain;
-        box-shadow: 0 0 15px #ffcc00;
-    }
+/* Linhas do campo */
+.campo::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(to right, rgba(255,255,255,0.2) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.2) 1px, transparent 1px);
+    background-size: 90px 90px;
+    pointer-events: none;
+}
 
-    .jogador {
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        background-color: #ffcc00;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: black;
-        font-weight: bold;
-        cursor: grab;
-        transition: transform 0.3s ease, background-color 0.3s ease;
-        user-select: none;
-    }
+/* Escudo do time */
+.escudo {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 10px;
+    left: 10px;
+    border-radius: 50%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/FIFA_World_Cup_Trophy_2018.png/800px-FIFA_World_Cup_Trophy_2018.png') no-repeat center center;
+    background-size: contain;
+    box-shadow: 0 0 25px #ffcc00;
+    animation: brilho 2s infinite alternate;
+}
 
-    .jogador:active {
-        cursor: grabbing;
-        transform: scale(1.3);
-        background-color: #00ccff;
-        z-index: 1000;
-    }
+@keyframes brilho {
+    0% { box-shadow: 0 0 15px #ffcc00; }
+    100% { box-shadow: 0 0 40px #ffd700; }
+}
 
-    .bola {
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        background: white;
-        top: 230px;
-        left: 385px;
-        box-shadow: 0 0 10px #fff;
-    }
+/* Jogadores */
+.jogador {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle at top left, #ffcc00, #ffa500);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: black;
+    cursor: grab;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    box-shadow: 0 0 10px #000;
+}
+
+.jogador:active {
+    cursor: grabbing;
+    transform: scale(1.3);
+    box-shadow: 0 0 30px #00ccff;
+    z-index: 1000;
+}
+
+.jogador:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px #00ccff;
+}
+
+/* Bola */
+.bola {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: white;
+    top: 245px;
+    left: 435px;
+    box-shadow: 0 0 15px #fff, 0 0 25px #fff;
+    animation: leve 1.5s infinite alternate;
+}
+
+@keyframes leve {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-5px); }
+}
 </style>
 </head>
 <body>
 <h1>Time do Jeovs</h1>
+
 <div class="info-time">
-    <strong>História:</strong> Este é o time do Jeovs, formado pelos melhores amigos do bairro, unidos pelo amor ao futebol e à estratégia no campo. Cada jogador tem sua posição, mas você pode reorganizar o time à vontade.
+    <strong>História:</strong> Este é o Real Pcgueiro, formado pelos melhores do fc26, unidos pelo amor ao futebol e à estratégia no campo. Organize o time, arraste os jogadores, renomeie e simule partidas!
 </div>
 
 <div class="campo">
     <div class="escudo"></div>
 
     <!-- Jogadores -->
-    <div class="jogador" style="top: 420px; left: 370px;">Jotta</div>
+    <div class="jogador" style="top: 420px; left: 400px;">Jotta</div>
     <div class="jogador" style="top: 320px; left: 220px;">Arthuzin</div>
     <div class="jogador" style="top: 320px; left: 520px;">Milgas</div>
     <div class="jogador" style="top: 320px; left: 100px;">Jeovs</div>
@@ -113,41 +152,42 @@
 </div>
 
 <script>
-    const jogadores = document.querySelectorAll('.jogador');
-    let jogadorSelecionado = null;
-    let offsetX, offsetY;
+// Arrastar e renomear jogadores
+const jogadores = document.querySelectorAll('.jogador');
+let jogadorSelecionado = null;
+let offsetX, offsetY;
 
-    jogadores.forEach(jogador => {
-        jogador.addEventListener('mousedown', e => {
-            jogadorSelecionado = jogador;
-            offsetX = e.clientX - jogador.getBoundingClientRect().left;
-            offsetY = e.clientY - jogador.getBoundingClientRect().top;
-        });
-
-        jogador.addEventListener('dblclick', () => {
-            let novoNome = prompt("Digite o nome do jogador:", jogador.textContent);
-            if(novoNome) jogador.textContent = novoNome;
-        });
+jogadores.forEach(jogador => {
+    jogador.addEventListener('mousedown', e => {
+        jogadorSelecionado = jogador;
+        offsetX = e.clientX - jogador.getBoundingClientRect().left;
+        offsetY = e.clientY - jogador.getBoundingClientRect().top;
     });
 
-    document.addEventListener('mousemove', e => {
-        if(jogadorSelecionado) {
-            let campo = document.querySelector('.campo').getBoundingClientRect();
-            let newX = e.clientX - offsetX - campo.left;
-            let newY = e.clientY - offsetY - campo.top;
-
-            // Mantém dentro do campo
-            newX = Math.max(0, Math.min(campo.width - jogadorSelecionado.offsetWidth, newX));
-            newY = Math.max(0, Math.min(campo.height - jogadorSelecionado.offsetHeight, newY));
-
-            jogadorSelecionado.style.left = newX + 'px';
-            jogadorSelecionado.style.top = newY + 'px';
-        }
+    jogador.addEventListener('dblclick', () => {
+        let novoNome = prompt("Digite o nome do jogador:", jogador.textContent);
+        if(novoNome) jogador.textContent = novoNome;
     });
+});
 
-    document.addEventListener('mouseup', () => {
-        jogadorSelecionado = null;
-    });
+document.addEventListener('mousemove', e => {
+    if(jogadorSelecionado) {
+        let campo = document.querySelector('.campo').getBoundingClientRect();
+        let newX = e.clientX - offsetX - campo.left;
+        let newY = e.clientY - offsetY - campo.top;
+
+        // Mantém dentro do campo
+        newX = Math.max(0, Math.min(campo.width - jogadorSelecionado.offsetWidth, newX));
+        newY = Math.max(0, Math.min(campo.height - jogadorSelecionado.offsetHeight, newY));
+
+        jogadorSelecionado.style.left = newX + 'px';
+        jogadorSelecionado.style.top = newY + 'px';
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    jogadorSelecionado = null;
+});
 </script>
 </body>
 </html>
