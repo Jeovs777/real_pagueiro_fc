@@ -1,201 +1,143 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <title>Real Pagueiro FC</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root{
-  --azul-claro:#7ec8f2;
-  --azul-escuro:#0b1d3a;
-  --preto:#000;
-  --branco:#fff;
-}
-
 body{
-  margin:0;
-  font-family:Arial, Helvetica, sans-serif;
-  background:var(--preto);
-  color:var(--branco);
+    margin:0;
+    background:#000;
+    color:#fff;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align:center;
 }
 
 header{
-  background:linear-gradient(135deg,var(--azul-escuro),#000);
-  padding:18px;
-  text-align:center;
-  border-bottom:3px solid var(--azul-claro);
+    padding:20px;
 }
 
-header h1{
-  color:var(--azul-claro);
-  margin:0;
+header img{
+    width:120px;
 }
 
-header p{
-  font-size:13px;
-  opacity:.9;
+h1{
+    color:#7fd3ff;
 }
 
-section{
-  padding:16px;
-}
-
-.card{
-  background:#0f0f0f;
-  border-radius:16px;
-  padding:16px;
-  margin-bottom:18px;
-  box-shadow:0 0 20px rgba(0,0,0,.6);
-}
-
-h2{
-  color:var(--azul-claro);
-  font-size:18px;
-  margin-bottom:12px;
-}
-
-/* CAMPO */
 .campo{
-  position:relative;
-  width:100%;
-  height:520px;
-  background:linear-gradient(#0f5c2e,#0b4b23);
-  border-radius:18px;
-  overflow:hidden;
-  border:3px solid var(--azul-claro);
-}
-
-/* Linhas */
-.campo::before{
-  content:"";
-  position:absolute;
-  inset:12px;
-  border:2px solid rgba(255,255,255,.4);
-  border-radius:12px;
-}
-
-.meio{
-  position:absolute;
-  top:50%;
-  left:0;
-  width:100%;
-  height:2px;
-  background:rgba(255,255,255,.4);
-}
-
-.circulo{
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:90px;
-  height:90px;
-  border:2px solid rgba(255,255,255,.4);
-  border-radius:50%;
-  transform:translate(-50%,-50%);
+    width:95%;
+    max-width:380px;
+    height:600px;
+    margin:20px auto;
+    background:linear-gradient(#1e7a3a,#145c2a);
+    border-radius:20px;
+    position:relative;
+    border:4px solid #7fd3ff;
 }
 
 /* Jogadores */
 .jogador{
-  position:absolute;
-  width:50px;
-  height:50px;
-  background:var(--azul-escuro);
-  border:3px solid var(--azul-claro);
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:9px;
-  font-weight:bold;
-  transition:all .6s ease;
-  box-shadow:0 0 10px rgba(126,200,242,.6);
+    position:absolute;
+    width:90px;
+    padding:5px;
+    background:rgba(0,0,0,0.75);
+    border-radius:18px;
+    font-size:14px;
+    cursor:grab;
+    transition:all 0.8s ease;
 }
 
-/* Botão */
+/* Botões */
+.controles{
+    margin:15px;
+}
+
 button{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:14px;
-  background:var(--azul-claro);
-  color:#000;
-  font-weight:bold;
-  font-size:15px;
-  cursor:pointer;
+    padding:10px 15px;
+    border:none;
+    border-radius:12px;
+    background:#7fd3ff;
+    font-weight:bold;
+    cursor:pointer;
+    margin:5px;
 }
-
-/* 4-4-2 SEM BOLA */
-.sem-bola #assis{top:90%;left:45%}
-.sem-bola #brunao{top:75%;left:30%}
-.sem-bola #jeovs{top:75%;left:60%}
-.sem-bola #kamiza{top:70%;left:10%}
-
-.sem-bola #victor{top:55%;left:20%}
-.sem-bola #pinheiro{top:55%;left:40%}
-.sem-bola #punhas{top:55%;left:60%}
-.sem-bola #maluan{top:55%;left:80%}
-
-.sem-bola #jotta{top:35%;left:40%}
-.sem-bola #arthuzin{top:35%;left:60%}
-
-/* 4-2-4 COM BOLA */
-.com-bola #assis{top:90%;left:45%}
-.com-bola #brunao{top:75%;left:30%}
-.com-bola #jeovs{top:75%;left:60%}
-.com-bola #kamiza{top:70%;left:10%}
-
-.com-bola #victor{top:50%;left:35%}
-.com-bola #pinheiro{top:50%;left:55%}
-.com-bola #punhas{top:40%;left:20%}
-.com-bola #maluan{top:40%;left:80%}
-
-.com-bola #jotta{top:25%;left:40%}
-.com-bola #arthuzin{top:25%;left:60%}
 </style>
 </head>
 
 <body>
 
 <header>
-<h1>⚽ Real Pagueiro FC</h1>
-<p>Identidade oficial • FC 26</p>
+    <img src="https://raw.githubusercontent.com/Jeovs777/real_pagueiro_fc/main/escudo.png">
+    <h1>Real Pagueiro FC</h1>
+    <p>Sem a bola: 4-4-2 | Com a bola: 4-2-4</p>
 </header>
 
-<section>
-<div class="card">
-<h2>🧠 Tática Animada</h2>
+<div class="campo">
+    <div class="jogador" id="j1">ASIS</div>
 
-<div id="campo" class="campo sem-bola">
-  <div class="meio"></div>
-  <div class="circulo"></div>
+    <div class="jogador" id="j2">JEOVS</div>
+    <div class="jogador" id="j3">BRUNÃO</div>
+    <div class="jogador" id="j4">KAMIZA</div>
+    <div class="jogador" id="j5">MILGAS</div>
 
-  <div class="jogador" id="assis">ASSIS</div>
-  <div class="jogador" id="brunao">BRUNÃO</div>
-  <div class="jogador" id="jeovs">JEOVS</div>
-  <div class="jogador" id="kamiza">KAMIZA</div>
+    <div class="jogador" id="j6">VICTOR</div>
+    <div class="jogador" id="j7">PINHEIRO</div>
+    <div class="jogador" id="j8">PUNHAS</div>
+    <div class="jogador" id="j9">MALUAN</div>
 
-  <div class="jogador" id="victor">VICTOR</div>
-  <div class="jogador" id="pinheiro">PINHEIRO</div>
-  <div class="jogador" id="punhas">PUNHAS</div>
-  <div class="jogador" id="maluan">MALUAN</div>
-
-  <div class="jogador" id="jotta">JOTTA</div>
-  <div class="jogador" id="arthuzin">ARTHUZIN</div>
+    <div class="jogador" id="j10">JOTTA</div>
+    <div class="jogador" id="j11">ARTHUZIN</div>
 </div>
 
-<br>
-<button onclick="alternar()">🔁 Alternar Tática</button>
+<div class="controles">
+    <button onclick="formacao442()">Sem a bola</button>
+    <button onclick="formacao424()">Com a bola</button>
 </div>
-</section>
 
 <script>
-let estado="sem-bola";
-function alternar(){
-  const campo=document.getElementById("campo");
-  campo.classList.toggle("com-bola");
-  campo.classList.toggle("sem-bola");
+function setPos(id,x,y){
+    const j = document.getElementById(id);
+    j.style.left = x + "%";
+    j.style.top = y + "%";
 }
+
+function formacao442(){
+    setPos("j1",45,85);
+
+    setPos("j2",10,65);
+    setPos("j3",30,65);
+    setPos("j4",55,65);
+    setPos("j5",75,65);
+
+    setPos("j6",15,45);
+    setPos("j7",35,45);
+    setPos("j8",55,45);
+    setPos("j9",75,45);
+
+    setPos("j10",35,20);
+    setPos("j11",55,20);
+}
+
+function formacao424(){
+    setPos("j1",45,85);
+
+    setPos("j2",15,65);
+    setPos("j3",35,65);
+    setPos("j4",55,65);
+    setPos("j5",75,65);
+
+    setPos("j6",35,45);
+    setPos("j7",55,45);
+
+    setPos("j8",10,20);
+    setPos("j9",30,20);
+    setPos("j10",55,20);
+    setPos("j11",75,20);
+}
+
+/* inicia */
+formacao442();
 </script>
 
 </body>
