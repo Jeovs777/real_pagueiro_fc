@@ -2,143 +2,152 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Real Pagueiro FC</title>
-
+<title>Time do Jeovs - Editor Interativo</title>
 <style>
-body{
-    margin:0;
-    background:#000;
-    color:#fff;
-    font-family:Arial, Helvetica, sans-serif;
-    text-align:center;
-}
+    body {
+        background-color: #111;
+        color: white;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-header{
-    padding:20px;
-}
+    h1 {
+        margin-top: 20px;
+    }
 
-header img{
-    width:120px;
-}
+    .info-time {
+        width: 800px;
+        text-align: left;
+        margin-bottom: 10px;
+        padding: 10px;
+        background: rgba(255,255,255,0.05);
+        border-left: 5px solid #ffcc00;
+    }
 
-h1{
-    color:#7fd3ff;
-}
+    .campo {
+        position: relative;
+        width: 800px;
+        height: 500px;
+        background: linear-gradient(to bottom, #0a7e07 0%, #078e08 100%);
+        border: 2px solid white;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #000;
+        overflow: hidden;
+    }
 
-.campo{
-    width:95%;
-    max-width:380px;
-    height:600px;
-    margin:20px auto;
-    background:linear-gradient(#1e7a3a,#145c2a);
-    border-radius:20px;
-    position:relative;
-    border:4px solid #7fd3ff;
-}
+    .escudo {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 10px;
+        left: 10px;
+        border-radius: 50%;
+        background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/FIFA_World_Cup_Trophy_2018.png/800px-FIFA_World_Cup_Trophy_2018.png') no-repeat center center;
+        background-size: contain;
+        box-shadow: 0 0 15px #ffcc00;
+    }
 
-/* Jogadores */
-.jogador{
-    position:absolute;
-    width:90px;
-    padding:5px;
-    background:rgba(0,0,0,0.75);
-    border-radius:18px;
-    font-size:14px;
-    cursor:grab;
-    transition:all 0.8s ease;
-}
+    .jogador {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background-color: #ffcc00;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        font-weight: bold;
+        cursor: grab;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        user-select: none;
+    }
 
-/* Botões */
-.controles{
-    margin:15px;
-}
+    .jogador:active {
+        cursor: grabbing;
+        transform: scale(1.3);
+        background-color: #00ccff;
+        z-index: 1000;
+    }
 
-button{
-    padding:10px 15px;
-    border:none;
-    border-radius:12px;
-    background:#7fd3ff;
-    font-weight:bold;
-    cursor:pointer;
-    margin:5px;
-}
+    .bola {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: white;
+        top: 230px;
+        left: 385px;
+        box-shadow: 0 0 10px #fff;
+    }
 </style>
 </head>
-
 <body>
-
-<header>
-    <img src="https://raw.githubusercontent.com/Jeovs777/real_pagueiro_fc/main/escudo.png">
-    <h1>Real Pagueiro FC</h1>
-    <p>Sem a bola: 4-4-2 | Com a bola: 4-2-4</p>
-</header>
-
-<div class="campo">
-    <div class="jogador" id="j1">ASIS</div>
-
-    <div class="jogador" id="j2">JEOVS</div>
-    <div class="jogador" id="j3">BRUNÃO</div>
-    <div class="jogador" id="j4">KAMIZA</div>
-    <div class="jogador" id="j5">MILGAS</div>
-
-    <div class="jogador" id="j6">VICTOR</div>
-    <div class="jogador" id="j7">PINHEIRO</div>
-    <div class="jogador" id="j8">PUNHAS</div>
-    <div class="jogador" id="j9">MALUAN</div>
-
-    <div class="jogador" id="j10">JOTTA</div>
-    <div class="jogador" id="j11">ARTHUZIN</div>
+<h1>Time do Jeovs</h1>
+<div class="info-time">
+    <strong>História:</strong> Este é o time do Jeovs, formado pelos melhores amigos do bairro, unidos pelo amor ao futebol e à estratégia no campo. Cada jogador tem sua posição, mas você pode reorganizar o time à vontade.
 </div>
 
-<div class="controles">
-    <button onclick="formacao442()">Sem a bola</button>
-    <button onclick="formacao424()">Com a bola</button>
+<div class="campo">
+    <div class="escudo"></div>
+
+    <!-- Jogadores -->
+    <div class="jogador" style="top: 420px; left: 370px;">Jotta</div>
+    <div class="jogador" style="top: 320px; left: 220px;">Arthuzin</div>
+    <div class="jogador" style="top: 320px; left: 520px;">Milgas</div>
+    <div class="jogador" style="top: 320px; left: 100px;">Jeovs</div>
+    <div class="jogador" style="top: 320px; left: 640px;">Brunão</div>
+    <div class="jogador" style="top: 220px; left: 250px;">Punhas</div>
+    <div class="jogador" style="top: 220px; left: 450px;">Freitas</div>
+    <div class="jogador" style="top: 220px; left: 350px;">Kamiza</div>
+    <div class="jogador" style="top: 120px; left: 300px;">Enzo</div>
+    <div class="jogador" style="top: 120px; left: 400px;">Pinheiro</div>
+    <div class="jogador" style="top: 50px; left: 350px;">Asis</div>
+
+    <!-- Bola -->
+    <div class="bola"></div>
 </div>
 
 <script>
-function setPos(id,x,y){
-    const j = document.getElementById(id);
-    j.style.left = x + "%";
-    j.style.top = y + "%";
-}
+    const jogadores = document.querySelectorAll('.jogador');
+    let jogadorSelecionado = null;
+    let offsetX, offsetY;
 
-function formacao442(){
-    setPos("j1",45,85);
+    jogadores.forEach(jogador => {
+        jogador.addEventListener('mousedown', e => {
+            jogadorSelecionado = jogador;
+            offsetX = e.clientX - jogador.getBoundingClientRect().left;
+            offsetY = e.clientY - jogador.getBoundingClientRect().top;
+        });
 
-    setPos("j2",10,65);
-    setPos("j3",30,65);
-    setPos("j4",55,65);
-    setPos("j5",75,65);
+        jogador.addEventListener('dblclick', () => {
+            let novoNome = prompt("Digite o nome do jogador:", jogador.textContent);
+            if(novoNome) jogador.textContent = novoNome;
+        });
+    });
 
-    setPos("j6",15,45);
-    setPos("j7",35,45);
-    setPos("j8",55,45);
-    setPos("j9",75,45);
+    document.addEventListener('mousemove', e => {
+        if(jogadorSelecionado) {
+            let campo = document.querySelector('.campo').getBoundingClientRect();
+            let newX = e.clientX - offsetX - campo.left;
+            let newY = e.clientY - offsetY - campo.top;
 
-    setPos("j10",35,20);
-    setPos("j11",55,20);
-}
+            // Mantém dentro do campo
+            newX = Math.max(0, Math.min(campo.width - jogadorSelecionado.offsetWidth, newX));
+            newY = Math.max(0, Math.min(campo.height - jogadorSelecionado.offsetHeight, newY));
 
-function formacao424(){
-    setPos("j1",45,85);
+            jogadorSelecionado.style.left = newX + 'px';
+            jogadorSelecionado.style.top = newY + 'px';
+        }
+    });
 
-    setPos("j2",15,65);
-    setPos("j3",35,65);
-    setPos("j4",55,65);
-    setPos("j5",75,65);
-
-    setPos("j6",35,45);
-    setPos("j7",55,45);
-
-    setPos("j8",10,20);
-    setPos("j9",30,20);
-    setPos("j10",55,20);
-    setPos("j11",75,20);
-}
-
-/* inicia */
-formacao442();
+    document.addEventListener('mouseup', () => {
+        jogadorSelecionado = null;
+    });
 </script>
-
 </body>
 </html>
